@@ -1,0 +1,12 @@
+services:
+  seedbox-mcp:
+    build: .
+    container_name: seedbox-mcp
+    restart: unless-stopped
+    network_mode: host
+    env_file: .env
+    volumes:
+      - /home/user/.ssh:/root/.ssh:ro
+      - /home/user/Downloads:/home/user/Downloads:ro
+    environment:
+      - PYTHONUNBUFFERED=1
